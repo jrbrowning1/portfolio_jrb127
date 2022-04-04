@@ -1,0 +1,121 @@
+
+/* from asset 1 - was having trouble getting background color to fill whole screen */
+/* html {
+    height: 100%
+}
+*/
+#app {
+    height: 100vh;
+    overflow: auto;
+} 
+
+#mainTitle {
+    text-align: left;
+    margin-left: 1%;
+    float: left;
+}
+
+#searchBar {
+    float: left;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+#settings{
+    float: right;
+    margin: 10px;
+}
+
+.top-buttons {
+    float: left;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.actual-cards {
+    margin-bottom: 4px;
+}
+
+.titleOfTask {
+    text-align: center; 
+}
+
+.numCards {
+    display: inline-block;
+}
+
+#task-container {
+    float: left;
+    padding-right: 16px;
+}
+
+/* from asset 2 */
+.taskColumn {
+    display: grid;
+    grid-auto-columns: 300px;
+    grid-auto-flow: column;
+    grid-gap: 16px;
+    grid-column-end: auto;
+    list-style-type: none;
+}
+
+.deadline {
+    font-weight: bold;
+}
+
+.overdue {
+    color: red;
+}
+
+.card-tag {
+    margin-left: 3px; 
+    margin-bottom: 3px;
+}
+
+/* used asset 4 to figure out how to get button into top right corner */
+.btn-outline-danger {
+    float: right;
+    border-style: none;
+    position:absolute;
+    top:0;
+    right:0;
+    line-height: 10px;
+    width: 5px;
+    text-align: center;
+}
+
+.btn-outline-success {
+    border-style: none;
+    position:absolute;
+    top:0;
+    left:0;
+    line-height: 14px;
+    text-align: center;
+}
+
+.btn-outline-secondary {
+    border-style: none;
+    position:absolute;
+    top:0;
+    left:45%;
+    line-height: 14px;
+    text-align: center;
+}
+
+.btn-outline-primary {
+    line-height: 14px;
+    padding: 4px;
+}
+
+.add-card-container {
+    border: none;
+}
+
+.add-card {
+    width: 100%;
+    float: left;
+}
+
+.comment-space {
+    margin: 12px;
+}

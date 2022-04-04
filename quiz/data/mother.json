@@ -1,0 +1,110 @@
+{
+    "background-color": "#29ab87",
+    "feedback-responses": [
+        "You probably watched Friends instead.",
+        "Not bad, but you might have a few seasons left to go.",
+        "Ted - don't take your own quiz!"],
+    "questions": 
+    [
+        {
+          "question": "In what year is Ted talking to his kids and narrating the episodes?",
+          "answer": "2030",
+          "choices": [
+          "2020",
+          "2025",
+          "2030",
+          "2031",
+          "2035"
+          ]
+        },
+        {
+          "question": " What college did Ted, Marshall and Lily go to?",
+          "answer": "Wesleyan University",
+          "choices": [
+          "Wesleyan University",
+          "Duke University",
+          "Tufts University",
+          "Brown University",
+          "University of Pennsylvania"
+          ]
+        },
+        {
+          "question": "What instrument does Ted steal for Robin?",
+          "answer": "French horn",
+          "choices": [
+          "Tuba",
+          "Violin",
+          "Saxophone",
+          "Viola",
+          "French horn"
+          ]
+        },
+        {
+          "question": "Who does Barney think is his father?",
+          "answer": "Bob Barker",
+          "choices": [
+          "Bob Barker",
+          "Drew Carey",
+          "Pat Sajak",
+          "Alex Trebek",
+          "Regis Philbin"
+          ]
+        },
+        {
+          "question": "Before Ted met the mother, who left him at the alter?",
+          "answer": "Stella",
+          "choices": [
+            "Valerie",
+            "Stella",
+            "Rachel",
+            "Robin",
+            "Anna"
+          ]
+        },
+        {
+            "question": "What fruit is on Ted’s bedside table after waking up from a drunken night?",
+            "answer": "Pineapple",
+            "choices": [
+              "Pineapple",
+              "Apple",
+              "Banana",
+              "Orange",
+              "Passionfruit"
+            ]
+        },
+        {
+            "question": "What is the last name of Robin's pop star alter ego?",
+            "answer": "Sparkles",
+            "choices": [
+              "Glitters",
+              "Twinkles",
+              "Shimmers",
+              "Sparkles",
+              "Flames"
+            ]
+        },
+        {
+            "question": "What is the name of Lily and Marshall's first son?",
+            "answer": "Marvin",
+            "choices": [
+              "Marvin",
+              "Tommy",
+              "Lewis",
+              "Andy",
+              "Cameron"
+            ]
+        },
+        {
+            "question": "What is the mother's name?",
+            "answer": "Tracy",
+            "choices": [
+              "Tracy",
+              "Stella",
+              "Robin",
+              "Peyton",
+              "Sydney"
+            ]
+        }
+    ]
+}
+  

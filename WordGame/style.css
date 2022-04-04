@@ -1,0 +1,17 @@
+/*
+ * styling for jotto game
+ *
+ * @author: Jonathan Browning
+*/
+
+
+/* used asset 2 to help with creating column layout */
+.row {
+    display: flex;
+}
+
+/* used asset 2 to help with creating column layout */
+.column {
+    flex: 50%;
+}
+

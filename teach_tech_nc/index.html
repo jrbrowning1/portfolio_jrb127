@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teach Tech NC Homepage</title>
+</head>
+<body>
+
+    <h1>Welcome to the Teach Tech NC Submission Homepage</h1>
+
+    <h2><a href="./dist/index.html">Click here to go to Teach Tech NC</a></h2>
+
+    <h2><a href="https://stormy-caverns-94672.herokuapp.com/">Click here to view JSON data returned by the server</a></h2>
+
+    <h2><a href="https://duke.box.com/v/ttnc-final-project-demo-video">Click here for my final demonstration video</a></h2>
+    
+    <h2>High Level Project Idea Description</h2>
+    <p>
+        This website is the built-out prototype of the work I did in my I&E 590 class: Special Topics
+        in Innovation and Entrepreneurship. In this course, we have been focusing on improving high school education, with a 
+        focus on technology education that revolves around the role of technology in society. In talking with a number of 
+        teachers, many common themes came up, but two stood out: teachers believe that teaching about how technology impacts society
+        is critical, but they don't have the time nor background to figure out how to incoporate these topics into an already 
+        established curriculum and set of standards. 
+        <br><br>
+        That's where this website comes in. There's already a ton of good content 
+        about these topics that lives out on the web, but there is no centralized location where teachers would be able to access it. 
+        And, even more crucially, there's no other site out there linking that content to the education standards (particularly computer
+        science ones). This site will provide that linkage. When teachers want to incorporate a tech in society topic, such as 
+        algorithmic bias and the very real effects it can have on people's lives, rather than scouring the web for the content and then
+        working it into a standard, they could instead come to this site where we would have already provided all that information for them,
+        so they can spend more time focusing on their individual class. As of right now, much of the data is just examples of how it would
+        look but, in the future (as I am going to continue working on this project), we will add more real data and resources. Because the 
+        problem we're trying to solve can't be fixed by just filtering a lot of data from some other site; it has to be manually curated 
+        by me (and hopefully others in the future).
+    </p>
+
+    <h2>High Level Project Implementation Description</h2>
+    <p>
+        The structure of my project is relatively simple. The website itself was built using Vue Router (regular settings, not history mode) so
+        that different pages would actually have different paths. In the future when this site is relocated to the domain that I bought 
+        (<a href="http://teachtecnnc.com">www.teachtechnc.com</a>), this will make navigation significantly easier. The "Home" and "About" 
+        sections of the website are fairly simple, and both are served up directly from the frontend. The curriculum database is probably
+        the most technically complex. The frontend is in charge of making sure selections are made correctly (i.e. you select at least one subject
+        or topic). This information is then send to the backend server, which pulls data from Google Firebase and does all the filtering necessary. 
+        This means that the frontend just has to display the information passed by the backend, rather than doing additional filtering of its own. 
+        However, if you want to filter the data after it has already been passed to the frontend (using the "filter resources" button), that will
+        be done in the frontend for faster results. The "student curriculum partners" section pulls data from both the Duke Directory API and 
+        Firebase. The names and email addresses displayed when viewing all student partners is pulled from the API and, if you click on a 
+        student partner, the short biographical information is pulled from Firebase. The "profile" section relies on OAuth to verify
+        a user. Once verified, the user can add their own resources to the curriculum database. This is all done through the backend connecting with
+        Firebase, but the verification for whether a correct value was entered is done in the frontend, so as to decrease wait times. And finally, if 
+        the user is recognized as an administrator, then they are able to view all the user logs in the profile section.
+    </p>
+
+    <h2>Attributions</h2>
+    <ul>
+        <li>
+            <h4><a href="https://api-catalog.oit.duke.edu/apis/2">Duke Directory API</a></h4>
+            <p>
+                The Duke Directory API "provides JSON streams of data which show directory information for faculty, students, and staff. 
+                Directory information includes name, DUID, NetID, campus address and phone, job title, affiliation, and department." However,
+                as of right now, I only needed a limited amount of that data so, for each call to the API, I filtered out all the unnecessary data
+                before passing it back to the frontend.
+            </p>
+        </li>
+        <li>
+            <h4><a href="https://firebase.google.com/docs/database">Firebase Realtime Database</a></h4>
+            <p>
+                In order to store most of the information that the application runs on, I used the Google's Firebase Realtime
+                Database.
+            </p>
+        </li>
+        <li>
+            <h4><a href="https://cloud.google.com/docs/authentication/getting-started">Google Cloud Credentials (OAuth)</a></h4>
+            <p>
+                In order to verify users and have them sign in, I used Google's Cloud Credentials.
+            </p>
+        </li>
+        <li>
+            <h4><a href="https://bootstrap-vue.org/">Bootstrap Vue</a></h4>
+            <p>
+                Much of the frontend design of the website was put together using Bootstrap Vue components.
+            </p>
+        </li>
+        <li>
+            <h4><a href="https://vue-multiselect.js.org/">Vue Multiselect</a></h4>
+            <p>
+                In order to generate a more visually pleasing dropdown of options, I used Vue Multiselect.
+            </p>
+        </li>
+        <li>
+            <h4><a href="https://www.fontspace.com/a-astro-space-font-f46028">Astro Space Font</a></h4>
+            <p>
+                This was used as the font for the main title of the application.
+            </p>
+        </li>
+        <li>
+            <h4>Data in Curriculum Database</h4>
+            <p>
+                All the data in the curriculum database was either 1) curated by me, 2) created by me for example purposes, or
+                3) added by some other user of the site. In the future, curating this further will be a substantial focus.
+            </p>
+        </li>
+    </ul>
+    
+</body>
+</html>

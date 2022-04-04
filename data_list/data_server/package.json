@@ -1,0 +1,20 @@
+{
+  "name": "data_server",
+  "version": "1.0.0",
+  "description": "serve json data",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "serve": "heroku local web",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "node-fetch": "^2.6.1",
+    "nodemon": "^2.0.7"
+  },
+  "author": "Jonathan Browning",
+  "license": "MIT"
+}

@@ -1,0 +1,329 @@
+{
+  "data": {
+    "partners": [
+      {
+        "funFact": "I can wiggle my ears",
+        "major": "Computer Science",
+        "name": "Jonathan Browning",
+        "netID": "jrb127",
+        "valueStatement": "I am passionate about providing accessible technology education to teachers and students.",
+        "year": "Class of 2022"
+      },
+      {
+        "funFact": "I am a historical documentary enthusiast",
+        "major": "Political Science",
+        "name": "Skylar Bloom",
+        "netID": "sjb99",
+        "valueStatement": "I am excited about sharing technology education with NC",
+        "year": "Class of 2022"
+      },
+      {
+        "funFact": "I am from northern California and love going tidepooling when I visit the west coast",
+        "major": "Genetics and Genomics",
+        "name": "Krista Pipho",
+        "netID": "kp275",
+        "valueStatement": "I am passionate about improving access to educational opportunities in science and technology.",
+        "year": "First year Ph.D. student"
+      },
+      {
+        "funFact": "I have a wildly diverse music taste",
+        "major": "Computer Science & Political Science",
+        "name": "Kamran Kara-Pabani",
+        "netID": "kk348",
+        "valueStatement": "I want to give high school students the tools to analyze technology ethics issues in their life and work.",
+        "year": "Class of 2022"
+      }
+    ],
+    "resources": [
+      {
+        "name": "AI & Facial Recognition",
+        "source": "AI4ALL",
+        "standards": [
+          {
+            "code": "HS-AP-01",
+            "subject": "Computer Science",
+            "text": "Identify artificial intelligence algorithms"
+          }
+        ],
+        "subjects": [
+          "Computer Science"
+        ],
+        "topics": [
+          "Artificial Intelligence"
+        ],
+        "url": [
+          {
+            "link": "http://bit.ly/3pRfrLx",
+            "name": "Teaching Guide"
+          },
+          {
+            "link": "http://bit.ly/36Hvp3y",
+            "name": "Curriculum Slides"
+          }
+        ]
+      },
+      {
+        "name": "AI & The Criminal Legal System",
+        "source": "AI4ALL",
+        "standards": [
+          {
+            "code": "HS-IC-01",
+            "subject": "Computer Science",
+            "text": "Evaluate computational artifacts for their effects on society"
+          }
+        ],
+        "subjects": [
+          "Computer Science"
+        ],
+        "topics": [
+          "Artificial Intelligence"
+        ],
+        "url": [
+          {
+            "link": "http://bit.ly/39M8mpZ",
+            "name": "Teaching Guide"
+          },
+          {
+            "link": "http://bit.ly/2YMR0mS",
+            "name": "Curriculum Slides"
+          }
+        ]
+      },
+      {
+        "name": "Can you make AI fairer than a judge? Play our courtroom algorithm game",
+        "source": "Explore AI Ethics",
+        "standards": [
+          {
+            "code": "HS-IC-05",
+            "subject": "Computer Science",
+            "text": "Create computational artifacts to ensure accessibility and reduce computational bias"
+          }
+        ],
+        "subjects": [
+          "Computer Science"
+        ],
+        "topics": [
+          "Artificial Intelligence"
+        ],
+        "url": [
+          {
+            "link": "https://www.exploreaiethics.com/curriculum/can-you-make-ai-fairer-than-a-judge-play-our-courtroom-algorithm-game/",
+            "name": "Overview + link to resource"
+          }
+        ]
+      },
+      {
+        "name": "The importance of ethical decision making in the age of technology",
+        "source": "Explore AI Ethics",
+        "standards": [
+          {
+            "code": "HS-IC-02",
+            "subject": "Computer Science",
+            "text": "Make computational artifact recommendations for maximized benefical and minimal harmful effects on society"
+          }
+        ],
+        "subjects": [
+          "Computer Science"
+        ],
+        "topics": [
+          "Artificial Intelligence",
+          "Ethical Tech"
+        ],
+        "url": [
+          {
+            "link": "https://www.exploreaiethics.com/lectures/the-importance-of-ethical-decision-making-in-the-age-of-technology/",
+            "name": "Overview + link to resource"
+          }
+        ]
+      },
+      {
+        "name": "AI & The Environment",
+        "source": "AI4ALL",
+        "standards": [
+          {
+            "code": "RL.11-12.7",
+            "subject": "11-12th grade English",
+            "text": "Integration of Ideas and Analysis"
+          },
+          {
+            "code": "SL.11-12.1",
+            "subject": "11-12th grade English",
+            "text": "Collaboration and Communication "
+          }
+        ],
+        "subjects": [
+          "11-12th grade English"
+        ],
+        "topics": [
+          "Artificial Intelligence"
+        ],
+        "url": [
+          {
+            "link": "https://bit.ly/37xDWFA",
+            "name": "Teaching Guide"
+          },
+          {
+            "link": "https://bit.ly/2Vunz7l",
+            "name": "Curriculum Slides"
+          }
+        ]
+      },
+      {
+        "name": "AI & COVID-19",
+        "source": "AI4ALL",
+        "standards": [
+          {
+            "code": "SL.11-12.1",
+            "subject": "11-12th grade English",
+            "text": "Collaboration and Communication"
+          },
+          {
+            "code": "W.11-12.2",
+            "subject": "11-12th grade English",
+            "text": "Write informative/explanatory texts"
+          }
+        ],
+        "subjects": [
+          "11-12th grade English"
+        ],
+        "topics": [
+          "Artificial Intelligence"
+        ],
+        "url": [
+          {
+            "link": "https://bit.ly/39FK815",
+            "name": "Teaching Guide"
+          },
+          {
+            "link": "https://bit.ly/39FK815",
+            "name": "Lesson 1 Curriculum Slides"
+          },
+          {
+            "link": "https://bit.ly/36zmgKF",
+            "name": "Lesson 2 Curriculum Slides"
+          },
+          {
+            "link": "https://bit.ly/36ylehV",
+            "name": "Lesson 3 Curriculum Slides"
+          }
+        ]
+      },
+      {
+        "name": "sample resource",
+        "source": "jonathan",
+        "subjects": [
+          "9-10th grade English",
+          "11-12th grade English",
+          "Civics",
+          "Computer Science"
+        ],
+        "topics": [
+          "Artificial Intelligence",
+          "Misinformation",
+          "Ethical Tech"
+        ],
+        "url": [
+          {
+            "link": "https://www.google.com",
+            "name": "https://www.google.com"
+          }
+        ]
+      },
+      {
+        "name": "another sample",
+        "source": "jonathan again",
+        "subjects": "",
+        "topics": "",
+        "url": [
+          {
+            "link": "https://www.apple.com",
+            "name": "https://www.apple.com"
+          }
+        ]
+      },
+      {
+        "name": "another sample",
+        "source": "from jonathan",
+        "subjects": [
+          "9-10th grade English",
+          "11-12th grade English",
+          "Civics",
+          "Computer Science"
+        ],
+        "topics": [
+          "Artificial Intelligence",
+          "Misinformation",
+          "Ethical Tech"
+        ],
+        "url": [
+          {
+            "link": "https://www.google.com",
+            "name": "https://www.google.com"
+          }
+        ]
+      },
+      {
+        "name": "one more sample",
+        "source": "jonathan",
+        "subjects": [
+          "9-10th grade English",
+          "11-12th grade English"
+        ],
+        "topics": [
+          "Artificial Intelligence",
+          "Misinformation"
+        ],
+        "url": [
+          {
+            "link": "http://teachtechnc.com",
+            "name": "http://teachtechnc.com"
+          }
+        ]
+      },
+      {
+        "name": "adding sample resource from user page",
+        "source": "Jonathan made it up",
+        "subjects": [
+          "11-12th grade English"
+        ],
+        "topics": [
+          "Ethical Tech"
+        ],
+        "url": [
+          {
+            "link": "https://www.ai-4-all.org",
+            "name": "https://www.ai-4-all.org"
+          }
+        ]
+      }
+    ],
+    "users": {
+      "aquickfakeemail@gmailcom": {
+        "allLogins": {
+          "-MZKCjXURJZhCKIliYDZ": "2021-04-27 21:23:13",
+          "-MZKDjf2V10giEh31gcJ": "2021-04-27 21:27:35"
+        }
+      },
+      "jbrowningr12@gmailcom": {
+        "allLogins": ""
+      },
+      "teachtechnc0@gmailcom": {
+        "allLogins": {
+          "-MZKFtsmoBb5b5_19lM2": "2021-04-27 21:37:01",
+          "-MZKG1BX7M3NdqxnDyPz": "2021-04-27 21:37:35",
+          "-MZKIUZZ43c1ANMXwVYa": "2021-04-27 21:48:20",
+          "-MZKIx9t2HCiBqkSRtog": "2021-04-27 21:50:21",
+          "-MZKJIUKByRFXity6S4v": "2021-04-27 21:51:53",
+          "-MZKJPIwTWZaNfQfeO7I": "2021-04-27 21:52:21",
+          "-MZKJWF3jXpAGt5-9s0I": "2021-04-27 21:52:49",
+          "-MZKJoyuWPjLIWaQc6sN": "2021-04-27 21:54:10",
+          "-MZKK5Hj3w7X5b8bZbaq": "2021-04-27 21:55:21",
+          "-MZKoItWqH75hgaek1hV": "2021-04-28 00:11:45",
+          "-MZKobd0MiRxvcbBlAFW": "2021-04-28 00:13:06",
+          "-MZLa9PezO30-UEPVQm6": "2021-04-28 03:49:33",
+          "-MZO7soHiKR81yNlvL__": "2021-04-28 15:40:30"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Filter</title>
+    <meta name="author" content="Jonathan Browning">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- DEV-only for easier refreshing: stop the web browser from ever caching this page or its images -->
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link rel="stylesheet" href="style.css">
+    <script async src="https://www2.cs.duke.edu/courses/compsci290/spring21/resources/code/js/SimpleImage.js"></script>
+    <script defer src="main.js"></script>
+</head>
+<body>
+
+    <h1>Image Filter</h1>  
+    <hr />
+
+    <!-- <div class="nav-bar">
+        <ul>
+          <li><a href="./index.html"><strong>Home</strong></a></li>
+          <li><a href="./interests.html"><strong>Interests</strong></a></li>
+          <li><a href="./coursework.html"><strong>Coursework</strong></a></li>
+        </ul>
+    </div>    -->
+    <br>
+
+    <!-- <div class="center"> -->
+        <h2 class="center" id="filter-intro">Have some fun filtering your chosen image!</h2>
+    <!-- </div> -->
+
+    <canvas id="imagecanvas">
+
+    </canvas>
+
+    <div class="center">
+        Image: <input type="file" id="fileInput" accept="image/*" onchange="loadImage()" />
+    </div>
+
+    <div class="center">
+        <button id="resetButton" onclick="resetImage()">Reset Image</button>
+        <button id="clear" onclick="clearCanvas()">Clear Image</button>
+    </div>
+
+    <div class="center">
+        <!-- <button id="changeTheRed" onclick="alterRed()">Alter Red Value</button> -->
+        Red pixel change: <input type="range" id="thresholdRed" min="0" max="255" value="0" oninput="alterRGB()" />
+        <br>
+        Green pixel change: <input type="range" id="thresholdGreen" min="0" max="255" value="0" oninput="alterRGB()" />
+        <br>
+        Blue pixel change: <input type="range" id="thresholdBlue" min="0" max="255" value="0" oninput="alterRGB()" />   
+    </div>
+
+
+
+    
+</body>
+</html>

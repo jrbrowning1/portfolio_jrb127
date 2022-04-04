@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!-- always put your name in your work -->
+    <meta name="author" content="Jonathan">
+    <!-- always label your name with a title -->
+    <title>Knockoff Trello</title>
+    <!-- scale page to fit entire screen, so it properly fills non-desktop devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- stop the web browser from ever caching this page or its images -->
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <!-- load required Bootstrap and BootstrapVue CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css" />
+    <!-- load Vue followed by BootstrapVue -->
+    <script src="https://unpkg.com/vue@latest/dist/vue.js"></script>
+    <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
+    <!-- load the following for BootstrapVueIcons support -->
+    <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue-icons.js"></script>
+    <!-- load searching component -->
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@latest/dist/fuse.js"></script>
+    <script src="https://www2.cs.duke.edu/courses/compsci290/spring21/resources/code/components/VueFuse.js"></script>
+    <!-- load draggble component -->
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuedraggable@latest/dist/vuedraggable.umd.js"></script>
+    <!-- style for this page -->
+    <link rel="stylesheet" href="style.css">
+    <!-- data supporting this page -->
+    <script defer src="data/TaskDataStore.js"></script>
+    <!-- <script src="examples/big_example.js"></script> -->
+    <!-- <script src="examples/small_example.js"></script> -->
+    <!-- <script src="examples/template_data.js"></script> -->
+    <!-- components supporting this page -->
+    <script defer src="components/AppHeader.js"></script>
+    <script defer src="components/AddTaskList.js"></script>
+    <script defer src="components/PageSettings.js"></script>
+    <script defer src="components/CollapseComments.js"></script>
+    <script defer src="components/TaskTags.js"></script>
+    <script defer src="components/TaskCardHeader.js"></script>
+    <script defer src="components/TaskListCard.js"></script>
+    <script defer src="components/AddNewCard.js"></script>
+    <script defer src="components/TaskListHeader.js"></script>
+    <script defer src="components/TaskList.js"></script>
+    <!-- primary Vue app, defer loading until after page to allow access to DOM elements -->
+    <script defer src="main.js"></script> 
+</head>
+
+<body>
+
+<div id="app" :style="pageStyle">
+    
+    <header>
+        <!-- <span id="mainTitle"><h1>{{ titleProject }}</h1></span> -->
+        <v-app-header
+            :title="titleProject"
+            @change-page-color="changeBackgroundColor"
+            @change-page-image="changeBackgroundImage"
+            @add-new-list="addNewList"
+        />
+    </header>
+
+    <span class="top-buttons">
+        <vue-fuse 
+            id="searchBox"
+            placeholder="Search..."
+            :list="allTasks"
+            :search="searchTerms"
+            :fuse-opts="searchOptions"
+            @fuse-results="handleSearchResults"
+        />   
+    </span>
+
+    <br><br><br>
+
+    <div id="task-container">
+    <!-- Loops over all the task lists (columns on the page) -->
+        <ul class="taskColumn">
+            <li
+                v-for="(taskList, i) in filteredData"
+                :key="i"
+                class="oneList"
+            >
+                <v-task-list
+                    :tasklist="taskList.item"
+                    :lindex="i"
+                    :data="filteredData"
+                    @copy-list="copyList"
+                    @delete-list="deleteList"
+                    @add-new-comment="addNewComment"
+                    @delete-comment="deleteComment"
+                    @delete-tag="deleteTag"
+                    @add-new-tag="addNewTag"
+                    @delete-card="deleteCard"
+                    @copy-card="copyCard"
+                    @add-new-card="addNewCard"
+                />
+            </li>
+        </ul>  
+    </div>
+</div>
+
+</body>
+</html>

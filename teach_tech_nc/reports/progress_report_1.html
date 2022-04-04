@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Report 1</title>
+</head>
+<body>
+    <h1>Progress Report 1</h1>
+
+    <h2>Video Demo</h2>
+    <a href="https://duke.box.com/v/jonathan-progress-report-1">Click here for a video demonstration of a few parts of my application</a>
+    
+    <h2>Data</h2>
+    <p>
+        In the "student curriculum partners" section of the website, the data will be coming from two different sources:
+        the Duke Directory API and a database that I will be setting up using Google Firebase. The contact information 
+        comes from the Duke API and the biography information (which I haven't yet added) will be set up in Google Firebase.
+        In the "curriculum databse" section, that will all be information that will be put together manually (for another class). 
+        As of right now, there is no API that would provide the information that I need, nor do I plan on webscraping. However,
+        I haven't ruled out web scraping entirely as it might be useful to do so for the different educational standards I plan to 
+        use. For a sample look at what some of the actual JSON data looks like, you can visit the 
+        <a href="https://stormy-caverns-94672.herokuapp.com/">homepage</a> (of sorts) for my Heroku server, which returns information 
+        from the Duke Directory API. 
+    </p>
+
+    <h2>Progress</h2>
+    <p>
+        My original goal for the first check was to build out the frontend framework of my site and for the most part, I have
+        accomplished that. However, my original plan didn't entail setting up OAuth - I was going to do that myself so I am slightly
+        behind on the signup and login page section of my plan. However, once I go back through the example from class, it should be (hopefully)
+        relatively simple to add in these sections. Another one of my goals was to experiment with the Firebase database, and I have done that.
+        Right now I just have some simple data there (which can be seen in the video), but I have tested to see if it would properly run if 
+        used with my server backend, and it did. I haven't yet tried to store user input in the database, so that will be one of my next
+        goals.
+    </p>
+
+    <h2>Concerns</h2>
+    <p>
+        I haven't found implementing any of the features to be particuarly concerning, but I do realize now that this project may take 
+        more technical debugging than I anticipated. Perhaps I have been lucky throughout the semester, but most things have worked
+        the first time (when I'm not overlooking a simply typo), but I had to spend quite a bit of time working with heroku to get 
+        it to work this time. 
+    </p>
+
+    <h2>Learning</h2>
+    <p>
+        All of the Vue apps that we have made so far are single page apps, without any reason to navigate to other pages. However,
+        my final project website requires multiple different pages. I could have implemented this using v-ifs and the like but,
+        as this is a website I intend to actually publish publically, I wanted it to have actual different paths. So, I looked into vue router
+        for a while, and ended up figuring out how to use that. However, that did set me back a little, as I implemented after I had 
+        already started working on the navigation without it. 
+    </p>
+
+    <h2>Plan</h2>
+    <p>
+        My plan for the next progress check remains much the same as my original plan - that is build out the details of the 
+        student partner search and add data to the database so that I can work on the curriculum database being able to actually search 
+        new things. The TA's feedback didn't offer a whole lot for me to add on, except to make sure that I have administrator role 
+        in addition to any other user types I create. However, I don't anticipate adding that part yet.
+    </p>
+
+    <h2>Summary</h2>
+    <p>
+        Overall, I still feel good about this project but at times, it does seem like a bit more than I can chew. Hopefully, once I work through
+        some of the technical problems that have arisen from using technology that I hadn't before (such as Firebase), these feelings will subside. 
+        It's definitely feasible - it just may take a little more time than I anticipated, but I probably should have expected that. 
+    </p>
+</body>
+</html>

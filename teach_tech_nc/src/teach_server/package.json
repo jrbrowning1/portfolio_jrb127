@@ -1,0 +1,35 @@
+{
+  "name": "teach_server",
+  "version": "1.0.0",
+  "description": "serve data to teach_ui",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "local-only": "nodemon server.js --local-only",
+    "local-only-with-google-auth": "nodemon server.js --local-only-with-google-auth",
+    "serve": "heroku local web",
+    "deploy": "cd ../.. && git subtree push --prefix url_list/server heroku master",
+    "logs": "heroku logs --tail",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "cookie-session": "^1.4.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "morgan-body": "^2.6.5",
+    "nodemon": "^2.0.7",
+    "passport": "^0.4.1",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-http": "^0.3.0",
+    "firebase-admin": "^9.2.0",
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.24.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1"
+  },
+  "author": "Jonathan Browning",
+  "license": "MIT"
+}

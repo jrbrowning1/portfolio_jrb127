@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- @author: Jonathan  -->
+    <meta charset="utf-8">
+    <!-- always put your name in your work -->
+    <meta name="author" content="Jonathan Browning">
+    <!-- always label your name with a title -->
+    <title>Jotto!</title>
+    <!-- scale page to fit entire screen, so it properly fills non-desktop devices -->    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- DEV-only for easier refreshing: stop the web browser from ever caching this page or its images -->
+    <!-- <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" /> -->
+    <link rel="stylesheet" href="../style.css">
+    <script defer src="wordgame.js"></script>
+    <script defer src="wordList.js"></script>
+    <script defer src="guessNumber.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>Let's play <a href="https://en.wikipedia.org/wiki/Jotto">Jotto!</a></h1>  
+    <hr />
+
+    <h2 class="center">How to play</h2>
+
+    <div class = "prose" id="directions">
+        <p> Pick a five letter word (in your head or write it down) and I will try to guess it! All you have to do is tell me how many letters
+            of your word my guess matches. Think of it like 20 questions, but for words (and I ask the same question every time but that's beside the point).
+            Depending on the difficulty, I have to guess it in under a certain number of tries to win - otherwise you win! But be warned - 
+            I'm pretty good at this :) <br> (Note: the higher you put the difficulty, the more guesses I get to try and read your mind!)
+        </p>
+    </div>
+
+    <div id="settings" class="center">
+        <label for="name">Your name: </label><input type="text" name="name" id="name"><br><br>
+        
+        <!-- used resouce 2 in README to figure out how to create dropdown of options -->
+        <label for="difficulty">Choose your difficulty: </label>
+        <select name="difficulty" id="difficulty">
+            <option value="easy">Easy (8 guesses)</option>
+            <option value="medium">Medium (12 guesses)</option>
+            <option value="hard">Hard (16 guesses)</option>
+        </select><br><br>
+        
+        <button id="start-game" onclick="startGame()">Start the game</button>
+        <button id="new-game" onclick="refresh()">New game</button>
+    </div>
+
+    <div id="gameplay" style="display: none;">
+        <h2>Hmmm, let me think...</h2>
+        
+        <div class="center" id="results-area">
+            <h3 id="guess-num">My guess is: </h3>
+                <label for="num-right">How many letters of your word did I match? </label>
+                    <input type="text" name="num-right" id="num-right" size="4">
+                    <!-- <input type="submit" onclick="guessRandomWord()"> -->
+                <button id="num-in-common" onclick="checkInput()">Submit</button>
+                <div id="error-message"></div><br>
+            <button id="word-guessed" onclick="iWin()"><strong>Click if I guessed your word :)</strong></button>
+        </div>
+        
+        <div class = "row">
+            <div class="column">
+                <h3>Guesses</h3>
+                <div id="guesses-area"></div>
+            </div>
+            <div class="column">
+                <h3>Settings</h3>
+                <!-- <ul> -->
+                    <p id="name-area"></p>
+                    <p id="num-guess-area"></p>
+                    <p id="diff-area"></p>
+                    <!-- <li><button id="give-up" onclick="giveUp()">Give Up</button></li> -->
+                <!-- </ul> -->
+            </div>
+        </div>
+    </div>
+
+    <hr />
+    
+    <footer>
+        <div class="center">
+            Contact me at <a href="mailto:jrb127@duke.edu">jrb127@duke.edu</a>
+            <br><br>
+            This work is licensed under a 
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.</a>
+            <br>
+            Last modified: 2-16-2021
+        </div>
+    </footer>
+
+
+</body> 
+</html>

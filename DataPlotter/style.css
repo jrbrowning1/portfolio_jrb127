@@ -1,0 +1,76 @@
+/*
+ * styling for data plotter page
+ *
+ * @author: Jonathan Browning
+*/
+
+h3{
+    display: inline-block;
+}
+
+.left-align{
+    text-align: left;
+}
+
+h4{
+    display: inline-block;
+}
+
+.row {
+    display: flex;
+}
+
+/* used asset 2 to help with creating column layout */
+.column {
+    flex: 50%;
+    /* text-align: left; */
+}
+
+input[type=radio] {
+    margin: 6px; 
+}
+
+#map-id {
+    border: 1px solid #333;
+    width: 800px;
+    height: 400px;
+    margin: 0 auto;
+}
+
+#size-key{
+    text-align: left;
+}
+
+/* adapted from asset 1 */
+.box {
+    float: left;
+    height: 20px;
+    width: 20px;
+    margin-bottom: 15px;
+    border: 1px solid black;
+    clear: both;
+}
+
+.red {
+    background-color: #ff0000;
+}
+
+.orange {
+    background-color: #ffa500;
+}
+
+.violet {
+    background-color: #8f00ff;
+}
+
+.blue {
+    background-color: #0000ff;
+}
+
+.green {
+    background-color: #00ff00;
+}
+
+.add-margin {
+    margin-bottom: 1%;
+}

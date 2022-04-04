@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- @author: Jonathan Browning -->
+    <meta charset="utf-8">
+    <!-- always put your name in your work -->
+    <meta name="author" content="Jonathan Browning">
+    <!-- always label your name with a title -->
+    <title>Data Plotter</title>
+    <!-- scale page to fit entire screen, so it properly fills non-desktop devices -->    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- DEV-only for easier refreshing: stop the web browser from ever caching this page or its images -->
+    <!-- <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" /> -->
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- include leaflet api for displaying map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+
+    <!-- interaction for this page, defer loading until after page -->
+    <script defer src="dataGetter.js"></script>
+    <script defer src="dataPlotter.js"></script>
+    
+</head>
+
+<body>
+
+    <h1>Internet Use and (Per Capita) Purchasing Power Parity</h1>  
+    <hr />
+
+    <h2 class="center">What's the story here?</h2>
+
+    <div class="prose" id="story-summary">
+        Our country and world have become increasingly digital in the last couple decades and this shift to all things
+        electronic has only been amplified by the current public health crisis. But many places in the world (and even
+        in the United States) are being left in the dust in terms of internet access (measured here by number of users
+        per 100 people). I thought it would be interesting to see how per capita purchasing power parity (pcppp) - which is essentially
+        a way for economists to compare economic productivity and standards of living - and internet use are related. For example,
+        if we look at countries in the bottom bracket of pcppp (0-$15000), we can see that there is a strong presence of red and orange
+        circles - which means that less than half of the population uses the Internet. However, if we look at countries in the top
+        bracket of pcppp, all of them are also in the top bracket of number of Internet users. So there is clearly some sort of 
+        surface level correlation between the two. There is surely an argument to be made here that countries with a higher pcppp
+        will have more wealth and thus be able to afford Internet access, but there is also the argument that less access to Internet
+        prevents those in certain countries from increasing their wealth. 
+    </div><br>
+
+    <div id="map-id">
+        <!-- Area used to display the map using Leaflet -->
+    </div>
+    
+    <div class = "row">
+        <div class="column">
+            <h3 id="filter-title">Filtering</h3>
+            <button id="apply-all-filter" onclick="resetAllFilters()">Reset all filters</button>
+            <!-- <button id="reset-all-filter" onclick="resetFilters()">Reset all filters</button> -->
+            <div class="left-align">
+               
+                <h4 id="purch-power-filter">Per capita purchasing power parity (in USD)</h4>
+                <button id="apply-ppc-filter" onclick="purchaseFilter()">Apply filter</button>
+                <button id="reset-ppc-filter" onclick="resetPurchase()">Reset filter</button>
+                <br>
+                <div>
+                    <input type="radio" id="ppp-1" name="ppp" value="ppp-1">
+                        <label for="ppp-1">0 - $15,000</label><br>
+                    <input type="radio" id="ppp-2" name="ppp" value="ppp-2">
+                        <label for="ppp-2">$15,000 - $30,000</label><br>
+                    <input type="radio" id="ppp-3" name="ppp" value="ppp-3">
+                        <label for="ppp-3">$30,000 - $50,000</label><br>
+                    <input type="radio" id="ppp-4" name="ppp" value="ppp-4">
+                        <label for="ppp-4">$50,000 - $70,000</label><br>
+                    <input type="radio" id="ppp-5" name="ppp" value="ppp-5">
+                        <label for="ppp-5">$70,000+</label><br>
+                </div>
+
+                <h4 id="pop-filter">Filter by Internet Users (per 100 people)</h4>
+                <button id="apply-int-filter" onclick="purchaseFilter()">Apply filter</button>
+                <button id="reset-int-filter" onclick="resetInternet()">Reset filter</button>
+                <br>
+                <div>
+                    <input type="radio" id="int-1" name="internet" value="int-1" >
+                        <label for="int-1">0 - 20 Internet users</label><br>
+                    <input type="radio" id="int-2" name="internet" value="int-2">
+                        <label for="int-2">20 - 40 Internet users</label><br>
+                    <input type="radio" id="int-3" name="internet" value="int-3">
+                        <label for="int-3">40 - 60 Internet users</label><br>
+                    <input type="radio" id="int-4" name="internet" value="int-4">
+                        <label for="int-4">60 - 80 Internet users</label><br>
+                    <input type="radio" id="int-5" name="internet" value="int-5">
+                        <label for="int-5">80 - 100 Internet users</label><br>
+                </div>
+
+            </div>
+        </div>
+        <div class="column">
+            <h3>Keys</h3>
+            <div class="prose" id="size-key">
+                The size of the circle markers on the map is proportional to the per capita purchasing power parity of that country, such that
+                the smaller the circle, the lower the per capita purchasing power parity and vice versa.
+            </div>
+            <h4 class="add-margin">Color Key</h4>
+            <div class="prose left-align add-margin">The colors correspond to the number of Internet users per 100 people.</div>
+            <div><div class="box red"></div> <div class="left-align">&nbsp; 0 - 20 Internet users</div> </div>
+            <br>
+            <div><div class="box orange"></div><div class="left-align">&nbsp; 20 - 40 Internet users</div></div>
+            <br>
+            <div><div class="box violet"></div><div class="left-align">&nbsp; 40 - 60 Internet users</div></div>
+            <br>
+            <div><div class="box blue"></div><div class="left-align">&nbsp; 60 - 80 Internet users</div></div>
+            <br>
+            <div><div class="box green"></div><div class="left-align">&nbsp; 80 - 100 Internet users</div></div>
+        </div>
+    </div>
+
+    <hr />
+
+    <footer>
+        <div class="center">
+            Powered by <a href="https://leafletjs.com/">Leaflet</a>, <a href="https://www.cia.gov/the-world-factbook/">CIA World Factbook</a>, 
+            <a href="https://github.com/iancoleman/cia_world_factbook_api">and Ian Coleman</a> (who converted the CIA World Factbook to JSON format).
+            <br><br>
+            Contact me at <a href="mailto:jrb127@duke.edu">jrb127@duke.edu</a>
+            <br><br>
+            This work is licensed under a 
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.</a>
+            <br>
+            Last modified: 2-16-2021
+        </div>
+    </footer>
+
+</body>
+</html>

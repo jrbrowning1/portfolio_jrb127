@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!-- always put your name in your work -->
+    <meta name="author" content="Jonathan">
+    <!-- always label your name with a title -->
+    <title>Knockoff Trello</title>
+    <!-- scale page to fit entire screen, so it properly fills non-desktop devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- stop the web browser from ever caching this page or its images -->
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <!-- load required Bootstrap and BootstrapVue CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css" />
+    <!-- load Vue followed by BootstrapVue -->
+    <script src="https://unpkg.com/vue@latest/dist/vue.js"></script>
+    <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
+    <!-- style for this page -->
+    <link rel="stylesheet" href="style.css">
+    <!-- interaction for this page, defer loading until after page to allow access to DOM elements -->
+    
+    <!-- these can be uncommented out for easier testing/grading -->
+    <script defer src="examples/big_example.js"></script>
+    <!-- <script defer src="examples/small_example.js"></script> -->
+
+    <!-- <script defer src="examples/template_data.js"></script> -->
+    <script defer src="main.js"></script>
+    
+</head>
+
+<body>
+
+<div id="app" :style="pageBackGround">
+    
+    <header>
+        <span id="mainTitle"><h1>{{ titleProject }}</h1></span>
+        <span id="searchBar">
+            <b-form-input
+                v-model="searchString" placeholder="Search content in cards" type="search" :disabled="didIFilter"
+            ></b-form-input>
+        </span>
+        <!-- <span> -->
+            <span class="top-buttons">
+                <b-button id="start-search" @click="startSearch()">Filter</b-button>
+                <b-button id="clear-search" @click="clearSearch()">Clear Filter</b-button>
+                <b-button id="add-new-list" v-b-modal="'add-list'">Add task list</b-button>
+            </span>
+            <b-modal
+                id="add-list" 
+                title="Enter title of new task list"
+                ok-only
+                @ok="addNewList()"
+                @hidden="resetListData()"
+            >
+                <label for="new-task-title"><b>New task list title</b></label>
+                <b-form-input id="new-task-title"
+                    v-model="newTaskTitle"
+                    aria-placeholder="Enter title of new task list"
+                ></b-form-input>
+            </b-modal>
+        <!-- </span> -->
+        <span id="settings">
+            <b-button v-b-toggle.sidebar-right>Settings</b-button>
+            <b-sidebar backdrop id="sidebar-right" title="Project Settings" right shadow>
+                <label for="main-title"><b>Edit Project Title</b></label>
+                <b-form-input class="main-title"
+                    v-model="titleProject"
+                    placeholder="titleProject"
+                ></b-form-input>
+                <br>
+                <label for="background-color"><b>Background Color</b></label>
+                <b-form-input
+                    type="color"
+                    id="background-color"
+                    v-model="backgroundColor"
+                    size="sm"
+                ></b-form-input>
+                <br>
+                <label for="background-image"><b>Background Image</b></label>
+                <b-form-file 
+                    id="background-image"
+                    accept="image/*"
+                    v-model="backgroundImage"
+                ></b-form-file>
+
+            </b-sidebar>
+        </span>
+    </header>
+
+    <br><br><br>
+
+    <div id="task-container">
+    <!-- Loops over all the task lists (columns on the page) -->
+        <ul class="taskColumn">
+            <li
+            v-for="(taskList, i) in filteredTasks"
+            :key="i"
+            class="oneList"
+            @dragover.prevent 
+            @dragenter.prevent
+            @drop = "onCardDrop(taskList.cards)"
+            >
+                <!-- Used asset 3 to figure out how to make essentially just title card -->
+                <b-card no-body :style="{backgroundColor: backgroundColor}" class="taskCard" >
+                    <template #header>
+                        <button v-b-popover.hover.top="'Copy task list'" type="button" class="btn btn-outline-success" @click="copyList(i)">Copy</button>
+                        <button v-b-popover.hover.top="'Edit task list'" type="button" class="btn btn-outline-secondary" v-b-modal="'modal'+i"><b>&hellip;</b></button>
+                            <b-modal :id="'modal'+i" title="Edit task list title" ok-only>
+                                <b-form-input class="task-title"
+                                    v-model="taskList.taskTitle"
+                                    placeholder="taskList.taskTitle"
+                                ></b-form-input>
+                                
+                            </b-modal>
+                        <button v-b-popover.hover.top="'Delete task list'" 
+                        type="button" class="btn btn-outline-danger" @click="deleteList(i)">x</button>
+                    </template>
+                    
+                    <b-card-body>
+                        <h4 class="titleOfTask">{{ taskList.taskTitle }}
+                        <b-badge variant="danger">{{taskList.cards.length}}</b-badge></h4>
+                    </b-card-body>
+                </b-card>
+            
+                <b-card 
+                    class="actual-cards"
+                    v-for="(card, j) in taskList.cards"
+                    :key="j"
+                    :title="card.cardTitle"
+                    :style="card.myStyle"
+                    draggable
+                    @dragstart="startCardDrag(taskList.cards, card)"               
+                >
+                    <template #header>
+                        <button v-b-popover.hover.top="'Copy task card'" type="button" class="btn btn-outline-success" @click="copyCard(i,j)">Copy</button>
+                        <div class="card-settings">
+                            <button v-b-popover.hover.top="'Edit task card'" v-b-modal="'modal'+i+j" class="btn btn-outline-secondary"><b>&hellip;</b></button>
+                            <b-modal :id="'modal'+i+j" title="Settings" ok-only>
+                                <label for="card-title"><b>Edit Title</b></label>
+                                <b-form-input class="card-title"
+                                    v-model="card.cardTitle"
+                                    placeholder="card.cardTitle"
+                                ></b-form-input>
+                                <label for="deadline-picker"><b>Choose the deadline</b></label>
+                                <b-form-datepicker class="deadline-picker"
+                                    v-model="card.deadline"
+                                ></b-form-datepicker>
+                                <label for="edit-description"><b>Edit the description</b></label>
+                                <b-form-input class="edit-description"
+                                    v-model="card.description"
+                                    aria-placeholder="card.description"
+                                ></b-form-input>
+                                <label for="card-color"><b>Background Color</b></label>
+                                <b-form-input class="card-color"
+                                    type="color"
+                                    v-model="card.myStyle.backgroundColor"
+                                    size="sm"
+                                ></b-form-input>
+                            </b-modal>
+                        </div>
+                        <button v-b-popover.hover.top="'Delete task card'" 
+                        type="button" class="btn btn-outline-danger" @click="deleteCard(i,j)">x</button>
+                    </template>
+                
+                    <b-card-text class="deadline" :class="{'overdue': todayDate > new Date(card.deadline)}">
+                        Due: {{displayDate(card.deadline)}}
+                    </b-card-text>
+                    
+                    <b-card-text>
+                        {{card.description}}
+                    </b-card-text>
+                    
+                    <p>
+                        <b-form-tag
+                            class="card-tag"
+                            v-for="(tag,k) in card.tags"
+                            :key="k"
+                            :style="tag.tagStyle"
+                            @remove="deleteTag(i,j,k)"
+                        >
+                        {{tag.tagTitle}}
+                        </b-form-tag>
+
+                        <button v-b-popover.hover.top="'Add new tag'" type="button" class="btn btn-outline-primary" v-b-modal="'tag_modal'+i+j">+</button>
+                        <b-modal :id="'tag_modal'+i+j" title="Add new tag" 
+                        ok-only @ok="addNewTag(i,j)" @hidden="resetTagData()">
+                            <label for="tag-title"><b>Tag Title</b></label>
+                            <b-form-input class="tag-title" v-model="newTagTitle"
+                            ></b-form-input>
+                            <label for="tag-color"><b>Tag Color</b></label>
+                            <b-form-input
+                                type="color"
+                                class="tag-color"
+                                size="sm"
+                                v-model="newTagBackgroundColor"
+                            ></b-form-input>
+                        </b-modal>
+                    </p>
+
+                    
+                    
+                    <b-button v-b-toggle="'collapse'+i+j" style="margin-top: 6px;">
+                        Comments <b-badge variant="light">{{card.comments.length}}</b-badge>
+                    </b-button>
+
+                    <b-collapse :id="'collapse'+i+j">
+                        <b-card
+                            v-for="(comment, q) in card.comments"
+                            :key="q"
+                        >
+                            <template #header>
+                                <button v-b-popover.hover.top="'Delete comment'" 
+                                type="button" class="btn btn-outline-danger" @click="deleteComment(i,j,q)">x</button>
+                            </template>
+                            {{comment}}
+                        </b-card>
+                        <b-button v-b-modal="'comment_modal'+i+j">Add comment</b-button>
+            
+                        <b-modal :id="'comment_modal'+i+j" title="Add new comment" 
+                        ok-only @ok="addNewComment(i, j)" @hidden="resetCommentData()">
+                            <label for="comment-title"><b>What is your comment?</b></label>
+                            <b-form-input class="tag-title" v-model="newComment"
+                            ></b-form-input>
+                            
+                        </b-modal>
+                        
+                    </b-collapse>
+
+                    <br>
+ 
+                </b-card>
+            
+                <b-button v-b-modal="'add_modal'+i" class="add-card">Add card</b-button>
+                <b-modal :id="'add_modal'+i" title="Add new card" 
+                ok-only @ok="addNewCard(i)" @hidden="resetCardData()">
+                    <label for="new-card-title"><b>Card Title</b></label>
+                    <b-form-input class="new-card-title"
+                        v-model="newCardTitle"
+                    ></b-form-input>
+                    <label for="new-deadline-picker"><b>Choose the deadline</b></label>
+                    <b-form-datepicker class="new-deadline-picker"
+                        v-model="newCardDeadline"
+                    ></b-form-datepicker>
+                    <label for="new-description"><b>Enter a description</b></label>
+                    <b-form-input class="new-description"
+                        v-model="newCardDescription"
+                    ></b-form-input>
+                    <label for="new-card-color"><b>Background Color</b></label>
+                    <b-form-input class="new-card-color"
+                        type="color"
+                        v-model="newCardBackgroundColor"
+                        size="sm"
+                    ></b-form-input>
+                    
+                </b-modal>
+            </li>
+            <!-- <span id="add-a-little-space"></span>      -->
+        </ul>
+        
+    </div>
+</div>
+
+</body>
+</html>

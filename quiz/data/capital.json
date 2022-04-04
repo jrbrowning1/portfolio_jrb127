@@ -1,0 +1,65 @@
+{
+  "background-color": "#00539B",
+  "feedback-responses": [
+    "You probably should have paid more attention in high school geography.",
+    "Looks like you didn't forget everything that you learned in high school.",
+    "Impressive! I bet you want to travel the world."],
+  "questions": 
+  [
+      {
+        "question": "What is the capital of Portugal?",
+        "answer": "Lisbon",
+        "choices": [
+        "Seoul",
+        "Lisbon",
+        "Melbourne",
+        "Porto",
+        "Braga"
+        ]
+      },
+      {
+        "question": "What is the capital of South Korea?",
+        "answer": "Seoul",
+        "choices": [
+        "Daegu",
+        "Jeonju",
+        "Ulsan",
+        "Seoul",
+        "Busan"
+        ]
+      },
+      {
+        "question": "What is the capital of Spain?",
+        "answer": "Madrid",
+        "choices": [
+        "Madrid",
+        "Barcelona",
+          "Rome",
+        "New Delhi",
+        "Belgium"
+        ]
+      },
+      {
+        "question": "What is the capital of Italy?",
+        "answer": "Rome",
+        "choices": [
+        "Milan",
+        "Venice",
+        "Florence",
+        "Rome",
+          "Paris"
+        ]
+      },
+      {
+        "question": "What is the capital of Denmark?",
+        "answer": "Copenhagen",
+        "choices": [
+          "Oslo",
+          "Amsterdam",
+          "Copenhagen",
+          "Stockholm",
+          "Helsinki"
+        ]
+      }
+  ]
+}

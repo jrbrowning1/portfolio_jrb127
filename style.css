@@ -1,0 +1,125 @@
+
+/*@author: Jonathan Browning (jrb127)
+
+/* Used as base for most pages */
+body {
+   background-color: #eef0f2;
+   font-family:"Georgia"; 
+   padding-left: 4%;
+   padding-right: 4%;
+}
+
+h1 {
+    color: #003892;
+    text-align: center;
+    font-size: 34px;;
+}
+
+.prose {
+    line-height: 1.5;
+}
+
+/*Used for navigation bar throughout website*/
+.nav-bar {
+    list-style-type: none;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    background-color: #eef0f2;
+    text-align: left;
+}
+
+.nav-bar li {
+    display: inline-block;
+}
+
+.nav-bar a {
+    color: #011638;
+    display: block;
+    padding: 10px;
+    text-decoration: wavy;
+    font-size: 18px;
+    background-color: #afeeee; 
+}
+
+/*Used for displaying image on main page*/
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 45%;
+}
+
+figcaption{
+    padding-top: 5px;
+    text-align: center;
+}
+
+/*Used for main content on home page*/
+#main-content {
+    padding-left: 50px;
+    padding-right: 50px;
+    background-color: #afeeee;   
+}
+
+#main-content h2 {
+    text-decoration: underline;
+}
+
+#main-content h3 {
+    font-style: italic;
+}
+
+/*Used for main content on interests page*/
+#main-content-interests {
+    padding-left: 50px;
+    padding-right: 50px;    
+}
+
+/*Used to properly display Chron articles*/
+.row{
+    display: inline-block;
+    text-align: center;
+}  
+
+.row li{
+  display: inline-block;
+} 
+
+.row img {
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 300px;
+    height: 300px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+/*From source 3 in README*/
+.row img:hover {
+  transform: scale(1.25);
+}
+
+/*For Image Filter project*/
+canvas {
+    background-color: #eee;
+    width: 550px;
+    height: 350px;
+    display: block;
+    margin: 0 auto;
+    border: 1px solid black
+}
+
+.center {
+    text-align: center;
+    padding: 10px;
+}
+
+/* #filter-intro {
+    color:darkblue;
+} */
+
+button {
+    background-color: #afeeee;
+}
+

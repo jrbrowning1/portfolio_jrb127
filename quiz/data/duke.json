@@ -1,0 +1,56 @@
+{
+    "background-color": "#012169",
+    "feedback-responses": [
+        "You might want to hit the history books.",
+        "Good job! Some of these questions are pretty tough.",
+        "President Price, is that you?"],
+    "questions": 
+    [
+        {
+            "question": "In what city is Duke Univeristy located?",
+            "choices": [ "Atlanta", "Raleigh", "Durham", "Chapel Hill" ],
+            "answer": "Durham"
+        },
+        {
+            "question": "In 1924, the university changed its name to Duke University from what name?",
+            "choices": [ "Brown School", "Normal College", "Trinity College", "Few University", "Union Institute" ],
+            "answer": "Trinity College"
+        },
+        {
+            "question": "The Duke Endowment, whose primary beneficiary is Duke University, also partially endows what university?",
+            "choices": [ "High Point University", "North Carolina Central University", "UNC Chapel Hill", "Wake Forest University", "Davidson College" ],
+            "answer": "Davidson College"
+        },
+        {
+            "question": "Which of the following is the namesake of the University's primary architect?",
+            "choices": [ "Few Quadrangle", "Allen Building", "Carr Building", "Abele Quadrangle", "Bryan University Center"],
+            "answer": "Abele Quadrangle"
+        },
+        {
+            "question": "How many Final Fours has Duke played in?",
+            "choices": [ "5", "16", "15", "20", "25" ],
+            "answer": "16"
+        },
+        {
+            "question": "What is Duke's mascot?",
+            "choices": [ "The Demon Deacon", "The Fighting Irish", "The Tar Heel", "The Blue Devil", "The Seminole" ],
+            "answer": "The Blue Devil"
+        },
+        {
+            "question": "Has the women's tennis team won a national championship?",
+            "choices": [ "Yes", "No"],
+            "answer": "Yes"
+        },
+        {
+            "question": "For what chemistry research did Paul Modrich win the 2015 Nobel Prize?",
+            "choices": [
+                "Mechanistic studies of DNA repair",
+                "The design and synthesis of molecular machines",
+                "Palladium-catalyzed cross couplings in organic synthesis",
+                "The development of methodology for chemical synthesis on a solid matrix",
+                "Work on polymethylenes and higher terpenes"
+            ],
+            "answer": "Mechanistic studies of DNA repair"
+        }
+    ]
+}

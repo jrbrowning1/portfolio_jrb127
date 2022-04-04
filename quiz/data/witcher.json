@@ -1,0 +1,110 @@
+{
+    "background-color": "#0d98ba",
+    "feedback-responses": [
+        "Looks like you haven't even watched the Netflix series.",
+        "Looks like you may need to go back to the books.",
+        "Geralt, is that you?"],
+    "questions": 
+    [
+        {
+          "question": "What is the process to become a witcher known as?",
+          "answer": "Trial of the Grasses",
+          "choices": [
+          "Trial of the Masses",
+          "Trial of the Gases",
+          "Trial of the Grasses",
+          "Trial of the Glasses",
+          "Trial of the Blade"
+          ]
+        },
+        {
+          "question": "Where is Geralt from?",
+          "answer": "Kaedwen",
+          "choices": [
+          "Kaedwen",
+          "Temeria",
+          "Cidaris",
+          "Aedirn",
+          "Vizima"
+          ]
+        },
+        {
+          "question": "What is Geralt also known as?",
+          "answer": "The White Wolf",
+          "choices": [
+          "The White Dragon",
+          "The White Wraith",
+          "The White Wolf",
+          "The Black Wolf",
+          "The White Stag"
+          ]
+        },
+        {
+          "question": "Who is Geralt's mother?",
+          "answer": "Visenna",
+          "choices": [
+          "Venara",
+          "Vivienne",
+          "Visenna",
+          "Valorie",
+          "Victoria"
+          ]
+        },
+        {
+          "question": "What does Geralt name every horse he owns?",
+          "answer": "Roach",
+          "choices": [
+            "Cricket",
+            "Roach",
+            "Rolph",
+            "Doren",
+            "Toad"
+          ]
+        },
+        {
+            "question": "Who is Geralt's true love?",
+            "answer": "Yennifer",
+            "choices": [
+              "Yennifer",
+              "Ciri",
+              "Triss",
+              "Shani",
+              "Fringilla"
+            ]
+        },
+        {
+            "question": "Where did Geralt learn about being a witcher?",
+            "answer": "Kaer Moren",
+            "choices": [
+              "Skellige",
+              "Novigrad",
+              "Velen",
+              "Kaer Moren",
+              "Toussaint"
+            ]
+        },
+        {
+            "question": "Who was Geralt's teacher?",
+            "answer": "Vesemir",
+            "choices": [
+              "Vesemir",
+              "Gweld",
+              "Eskel",
+              "Korin",
+              "Dandelion"
+            ]
+        },
+        {
+            "question": "Who is Geralt's adopted daughter?",
+            "answer": "Ciri",
+            "choices": [
+              "Cora",
+              "Ciri",
+              "Cuni",
+              "Ceri",
+              "Cara"
+            ]
+        }
+    ]
+}
+  
